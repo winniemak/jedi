@@ -1,0 +1,17 @@
+---
+- hosts: local
+  tasks:
+    - name: capture output whoami
+      command: whoami
+      register: login
+    - debug: var=login
+
+    - name: shell command
+      shell: >
+           ls -l 
+      register: result
+
+    - set_fact: temp={{result}}
+    - debug: var=temp
+
+
